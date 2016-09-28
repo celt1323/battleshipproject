@@ -63,31 +63,31 @@ var gameBoard = [
 				[1,0,0,0,0,0,0,0,0,0]
 				]
 
+var hitCount = 0;
+
 function fireTorpedo() {
 
 	// Your game logic will go here!
- 	var userGuess = $("userInput").val();
-	var rowLetter = userGuess.substring(0,1);
+ 	var userGuess = $("#userInput").val();
+var rowLetter = userGuess.substring(0,1);
  		var columnNumber = userGuess.substring(1,2);
-rowLetter=["A","B","C","D","E","F","G","H","I","J"];
 
- rowNumber = letterConversion[rowLetter];
-  columnNumber = letterConversion[rowLetter];
- var battleshipGuess = gameBoard[0][1];
- var boardSquare = "#s" + row + column;
- if (battleshipGuess == 1) {
- 	"Hit";
-$(boardSquare).css("background-color", "gray");
- }
+  rowNumber = letterConversion[rowLetter];
+   //columnNumber = letterConversion[rowLetter];
+var battleshipGuess = gameBoard[rowNumber][columnNumber];
+ var boardSquare = "#s" + rowNumber + columnNumber;
+  if (battleshipGuess == 1) {
+  	alert('Hit');
+		console.log(boardSquare);
+ 		$(boardSquare).css("background-color", "red");
+		hitCount = hitCount + 1;
+}
  else {
-"Miss";
-$(boardSquare).css("background-color", "red");
- }
-
- var hitCount = 0;
- for (hitCount = 0; hitCount < 17; hitCount++) {
-$("#instructions").text("YOU SUNK ALL MY BATTLESHIPS!");
+	   alert('Miss');
+  	$(boardSquare).css("background-color", "gray");
+   }
 
 
-
-}}
+ if (hitCount = 17) {
+ $("#instructions").text("YOU SUNK ALL MY BATTLESHIPS!");
+ }}
